@@ -1,0 +1,4 @@
+googlemaps
+pymongo
+Genderize
+spacy

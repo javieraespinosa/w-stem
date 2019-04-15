@@ -1,0 +1,22 @@
+
+version: '3.6'
+services:
+
+   jupyter:
+      build:    .
+      command:  start-notebook.sh --NotebookApp.token=''
+      ports:
+         - 8888:8888  # Jupyter
+      volumes:
+         - ./work:/home/jovyan/work
+         - ./tools:/home/jovyan/tools
+      environment:
+         - MONGO_HOST=mongo        
+
+   mongo:
+      image:    mongo:4 
+      ports:
+         - 27017:27017  # Mongo
+      volumes:
+         - ./data/db:/data/db
+
